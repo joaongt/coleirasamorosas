@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "nodemon app.js",
     "build": "npm install && npm run build",
-    "start": "node app.js",
-    "render-start": "PORT=$PORT node app.js"
+    "start": "nodemon app.js",
+    "render-start": "PORT=5500 nodemon app.js"
   },
   "type": "module",
   "keywords": [],
