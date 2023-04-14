@@ -1,19 +1,24 @@
+# Use an official Node.js runtime as a parent image
 FROM node:14
 
-# set working directory
+# Set the working directory to /app
 WORKDIR /app
 
-# copy package.json and package-lock.json
+# Copy package.json and package-lock.json to /app
 COPY package*.json ./
 
-# install dependencies
+# Install dependencies
 RUN npm install
 
-# copy app source code
+# Copy the current directory contents to /app
 COPY . .
 
-# expose port
-EXPOSE 8080
+# Build the application
+RUN npm run build
 
-# start server
+# Expose port 5500
+EXPOSE 5500
+
+# Start the application
 CMD [ "npm", "start" ]
+
