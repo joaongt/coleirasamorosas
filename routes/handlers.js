@@ -473,7 +473,7 @@ router.post("/add-to-cart", async (req, res) => {
 
   if (!authHeader) {
       return res.status(401).json({
-          msg: 'Authorization header is missing'
+          msg: 'Faça o login primeiro'
       });
   }
 
@@ -487,7 +487,7 @@ router.post("/add-to-cart", async (req, res) => {
       userId = decodedToken.id;
   } catch (error) {
     return res.status(401).json({
-      msg: 'invalid'
+      msg: 'Invalido'
   });
   }
   
@@ -617,7 +617,7 @@ router.post('/open-cart', async (req, res) => {
 
   if (!authHeader) {
     return res.status(401).json({
-      msg: 'Authorization header is missing',
+      msg: 'Faça o login primeiro',
     });
   }
 
@@ -663,7 +663,7 @@ router.post('/checkout', async (req, res) => {
 
   if (!authHeader) {
     return res.status(401).json({
-      msg: 'Authorization header is missing',
+      msg: 'Faça o login primeiro',
     });
   }
 

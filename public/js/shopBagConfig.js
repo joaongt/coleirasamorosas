@@ -4,10 +4,6 @@
  const closeBag = document.querySelector('#bag-close');
  const overLays = document.querySelector('#overlays');
 
- bagIcon.addEventListener('click', () => {
-     bag.classList.add('active');
-     overLays.style.display = "block";
- })
 
  closeBag.addEventListener('click', () => {
      bag.classList.remove('active');
@@ -93,10 +89,10 @@ let productId, productImg, productName, price
       // Handle the response from the server
       if (response.ok) {
         const data = await response.json();
-        alert(data.msg); // Show a success message to the user
+        showError(data.msg); // Show a success message to the user
       } else {
-        const error = await response.text();
-        alert(error); // Show an error message to the user
+        const error = await response.json();
+        showError(error.msg); // Show an error message to the user
       }
     } catch (error) {
 
@@ -120,6 +116,11 @@ openCartButton.addEventListener("click", async (event) => {
 
           // Handle the response from the server
           if (response.ok) {
+            
+            bagIcon.addEventListener('click', () => {
+              bag.classList.add('active');
+              overLays.style.display = "block";
+            })
             // Replace the contents of the cart table with the rendered bag items
             const cartTable = document.querySelector('#cart-table');
             const responseHTML = await response.text();
