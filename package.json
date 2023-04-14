@@ -2,12 +2,12 @@
   "name": "projetao",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
     "build": "npm install && npm run build",
-    "start": "node index.js",
-    "render-start": "PORT=$PORT node index.js"
+    "start": "node app.js",
+    "render-start": "PORT=$PORT node app.js"
   },
   "type": "module",
   "keywords": [],
