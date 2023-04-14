@@ -10,7 +10,7 @@ import bodyParser from 'body-parser';
 // .env configuration
 dotenv.config();
 
-PORT = process.env.PORT
+const PORT = process.env.PORT
 
 // Express middleware
 const app = express();
