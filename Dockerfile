@@ -1,16 +1,16 @@
 # Use an official Node.js runtime as a parent image
-FROM node:14
+FROM node:lts
 
-# Set the working directory to /app
-WORKDIR /app
+# Set the working directory to /projetao
+WORKDIR /projetao
 
-# Copy package.json and package-lock.json to /app
+# Copy package.json and package-lock.json to /projetao
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the current directory contents to /app
+# Copy the current directory contents to /projetao
 COPY . .
 
 # Build the application
