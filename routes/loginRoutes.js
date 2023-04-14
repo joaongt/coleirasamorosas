@@ -1,8 +1,6 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import path from 'path';
 import jwt from 'jsonwebtoken'
-import session from 'express-session';
 // Models
 import {
     User

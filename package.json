@@ -7,7 +7,7 @@
     "dev": "nodemon app.js",
     "build": "npm install && npm run build",
     "start": "nodemon app.js",
-    "render-start": "PORT=5500 nodemon app.js"
+    "render-start": "node app.js"
   },
   "type": "module",
   "keywords": [],

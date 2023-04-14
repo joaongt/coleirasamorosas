@@ -5,7 +5,6 @@ import exphbs from 'express-handlebars';
 import router from './routes/handlers.js';
 import routers from './routes/loginRoutes.js';
 import bodyParser from 'body-parser';
-import session from 'express-session';
 
 
 // .env configuration
@@ -20,13 +19,6 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json())
 
-// Express Session middleware
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-}));
 
 // use the router middleware
 app.use(router);
