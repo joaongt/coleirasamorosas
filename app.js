@@ -10,6 +10,8 @@ import bodyParser from 'body-parser';
 // .env configuration
 dotenv.config();
 
+PORT = process.env.PORT
+
 // Express middleware
 const app = express();
 app.use(express.json())
@@ -33,8 +35,18 @@ app.get('/api', (req, res) => {
   res.status(200).json({ msg: "Bem vindo a nossa API!" })
 });
 
-app.listen(5500, () => {
-  console.log("App is listening");
+
+const server = app.listen(PORT, () => {
+  console.log(`App is listening on port ${PORT}`);
+});
+
+process.on('SIGTERM', () => {
+  console.info('SIGTERM signal received.');
+  console.log('Closing server...');
+  server.close(() => {
+    console.log('Server closed.');
+    process.exit(0);
+  });
 });
 
 
