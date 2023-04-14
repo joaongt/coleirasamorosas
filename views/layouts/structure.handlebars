@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/{{style}}" rel="stylesheet" type="text/css">
+	<link href="/css/header.css" rel="stylesheet" type="text/css">
+    <link href="/css/darkMode.css" rel="stylesheet" type="text/css">
+    <link href="/css/lightMode.css" rel="stylesheet" type="text/css">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+	<link rel="icon" id="fav-icon" href="../images/logo-icone-2.png">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+	<script src="https://www.paypal.com/sdk/js?client-id=Afa7sCac9Cx4OHJOGwlF5tGr1VDbMtcgcq43SJi8YOjXHqmxJBF8X_AKvbYNw2YYmPxFhK3cVOEstWkG"></script>
+    <title>{{title}}</title>
+</head>
+<body>
+
+
+	<div class="show-error">
+  <div class="error-show">
+	<p id="error-msg"></p>
+  	<button id="error-close-btn">OK</button>
+  </div>
+</div>
+    	<!-- HEADER -->
+	<header class="header">
+		<div id="overlays"></div> <!-- This div will cover the background -->
+		<!-- NAV -->
+		<div class="nav container">
+			
+			<!-- LOGO -->
+			<div class="task-bar">
+				<a href="/"><img class="logo" src="../images/logo-verdin-d.png"></a>    
+			</div>
+
+			<!-- LIST LINKS -->
+		  	<ul class="nav list-links">
+
+				<!-- DARK-LIGHT MODE -->
+				<li>					
+					<button class="bx"  data-favicon-light="logo-icone.png" data-favicon-dark="logo-icone-2.png" id="mode-switch">
+						<i id="change-class" class='bx bx-toggle-left' ></i>
+					</button>					
+				</li>
+				<!-- SHOP LINK -->
+				<li>
+			  		<a href="/shop?page=1&search=&category=all" class="link">Loja</a>
+				</li>
+
+				<!-- ADOTE LINK -->
+				<li>
+			  		<a href="/adoption" class="link">Adote</a>
+				</li>
+
+				<!-- SOBRE LINK -->
+				<li>					
+			  		<a href="/about" class="link">Sobre</a>
+				</li>
+
+				<!-- SEARCH PRODUCTS -->
+				<li id="search-container">
+				<form action="/shop" method="get" id="search-form">
+					<button type="submit" id="search-btn"><i class='bx bx-search'></i></button>
+					<input type="text" id="search" name="search" placeholder="Digite o nome do produto aqui..."/>
+				</form>
+				</li>
+
+
+			  	<!-- SHOPPING BAG -->	
+				<li> <!-- BAG ICON -->	
+					<button type="button" class="bx" id="shopping-bag">
+						<i class='bx bx-shopping-bag' ></i>
+					</button>
+
+					<!-- BAG -->
+					<div class="bag">
+					<h2 class="bag-title">Seu Carrinho</h2>
+
+
+					<!-- CONTENT -->
+					<div id="cart-table">
+						
+					</div>
+					<!-- TOTAL -->
+					<div class="total">
+						<div class="total-title">Total:</div>
+						<div class="total-price"></div>
+					</div>
+
+					<!-- BUY BUTTON -->
+					<button type="button" class="btn-buy">Comprar</button>
+
+					<!-- BAG CLOSE -->
+					<i class='bx bx-x' id="bag-close"></i>
+					</div>
+				</li>
+				{{#if userLogged}}
+
+				<li class="account">
+					<button type="button" class="bx" id="account" onclick="user()">
+						<img id="user-photo" src="data:image/jpg,/" alt="Your Profile Photo">
+					</button>
+
+					<div class="users">
+						<button type="button" class="bx" id="login" onclick="login()"><h6>Login</h6></button>
+						<button type="button" class="bx" id="sign-up" onclick="signUp()"><h6>Cadastrar</h6></button>
+						<button type="button" class="bx" id="profile" onclick="profile()"><h6>Perfil</h6></button>
+						<button type="button" class="bx" id="log-out" onclick="logOut()"><h6>Sair</h6></button>
+						<i class='bx bx-x' id="bag-close-user" onclick="userClose()"></i>
+					</div>
+				</li>
+
+				{{else }}
+				<!-- ACCOUNT -->
+				<li class="account">
+					<button type="button" class="bx" id="account" onclick="user()">
+						<i id="user-icon" class='bx bx-user'></i>
+					</button>
+
+					<div class="users">
+						<button type="button" class="bx" id="login" onclick="login()"><h6>Login</h6></button>
+						<button type="button" class="bx" id="sign-up" onclick="signUp()"><h6>Cadastrar</h6></button>
+						<button type="button" class="bx" id="log-out"><h6>Sair</h6></button>
+						<i class='bx bx-x' id="bag-close-user" onclick="userClose()"></i>
+					</div>
+				</li>
+				{{/if }}
+		  	</ul>
+		</div>
+	</header>
+	<!-- LOADING SCREEN -->
+	<div id="loading">
+		<div class="spinner"></div>
+	</div>
+	
+    {{{body}}}
+	
+	<footer class="footer">
+
+        <div class="footer-container">
+			<div class="col" id="contact">
+				<a href="/"><img class="logo-footer" src="../images/logo-icone-2.png" alt=""></a>
+				<h4 id="contact-h4">Contato</h4>
+				<p><strong>Endereço: </strong>Senac Venda Nova: Avenida Liége, 213 - Jardim dos Comerciários</p>
+				<p><strong>Telefone: </strong>(31) 9 8987-8715</p>
+				<p><strong>Horário: </strong>8:00 - 12:15, Seg - Sex</p>
+        	</div>
+
+			<div class="col">
+				<h4 class="link-h4">Sobre<h4>
+				<a class="link-footer" href="#">Sobre nós</a>
+				<a class="link-footer" href="#">Informações de Entrega</a>
+				<a class="link-footer" href="/politica">Política de Privacidade</a> 
+				<a class="link-footer" href="#">Termos e Condições</a> 
+				<a class="link-footer" href="#">Contate-nos</a>  
+			</div>
+			<div class="col">
+				<h4 class="link-h4">Minha Conta<h4>
+				<a class="link-footer" href="#">Se Inscreva</a>
+				<a class="link-footer" href="#">Ver Carrinho</a>
+				<a class="link-footer" href="#">Lista de Favoritos</a> 
+				<a class="link-footer" href="#">Acompanhe Meu Pedido</a> 
+				<a class="link-footer" href="#">Ajuda</a>  
+			</div>
+		</div>
+
+        <div class="footer-container2">
+			<div class="col pay">
+				<h4 class="link-h4">Formas de Pagamentos Seguros</h4> 
+				<img id="b-pay" src="../images/pay/bandeiras.png" alt="">
+        	</div>
+			<div class="follow">
+					<h4>Nos Sigam</h4>
+					<div class="footer-icon">
+						<a href="#"><i class='bx bxl-instagram sm'></i></a>
+						<a href="#"><i class='bx bxl-facebook-circle sm'></i></a>
+						<a href="#"><i class='bx bxl-twitter sm' ></i></a>
+						<a href="#"><i class='bx bxl-youtube sm' ></i></a>
+					</div>
+			</div>
+		</div>
+		<div class="footer-container3">
+			<div class="copyright">
+				<p>© 2023, Coleiras Amorosas CAS S.A</p>
+			</div> 
+		</div>
+		
+
+    </footer>
+<a href="#" id="to-top" style="position: fixed; bottom: 10px; right: 10px"><i
+        class='bx bxs-up-arrow-square'></i></a>
+
+	<script type="text/javascript" src="/js/{{script}}"></script>
+    <script type="text/javascript" src="/js/{{script2}}"></script>
+	<script type="text/javascript" src="/js/{{script3}}"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<div class="baixinho"></div>
+
+<span class="colorCat"><a href="/shop?page=1&search=&category=all"><i class='bx bx-home'></i></a> > Produtos > Categoria > {{ product.category }}</span>
+
+<div class="irbaixo">
+    <div class="product-all">
+        <div class="product-row">
+            <div class="product-image">
+                <img src="{{ product.image }}" alt="{{ product.productName }}" class="product-pic" data-action="zoom" data-original="{{ product.image }}">
+            </div>
+        </div>
+        <div class="product-row">
+            <div class="products-info">
+                <h1 class="title">{{ product.productName }}</h1>
+
+                <div class="price">
+                    <span class="current">R$ {{ product.price }}</span>
+                </div>
+                 <div id="products">
+                     <img id="hiide" src="{{ product.image }}" alt="{{ product.productName }}" class="product-img" data-action="zoom" data-original="{{ product.image }}">
+                     <h2 id="hiide" class="product-name">{{ product.productName }}</h2>
+                     <span id="hiide" class="product-price">{{ product.price }}</span>  
+                     <button type="button" class="add-bag"><span>Adicionar no carrinho</span></button>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+<div class="irbaixo">
+       <article>
+              <h5>Descrição:</h5>
+              <p>{{ product.description }}</p>
+       </article>
+</div>
+           
+
+
+
+{{!-- 
+
+INSERT INTO products (productName, category, price, image, description, SKU)
+VALUES ('Brinquedo Chalesco Osso de Pelúcia', 'Pelúcias', 21.89, '../images/products/Osso-Branco-de-Pelucia.jpg', 'Resumo
+- Macio e resistente;
+- Controla a ansiedade;
+- Material de alta qualidade;
+- Feito especialmente para cães;
+- Incentiva atividade física para seu pet.
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+Com o Brinquedo Chalesco Osso de Pelúcia as brincadeiras do seu pet serão mais divertidas. Uma ótima opção para livrar seu cão da ansiedade e do tédio.
+
+Seu cão vai adorar brincar com este acessório divertido e colorido. A Chalesco produz brinquedos e acessórios com materiais resistentes.'),
+       ('Brinquedo Duratoys Bola Cravo Pula Pula Vermelha', 'Bolinhas', 3.15, '../images/products/Bola-Cravo-Pula-Pula-Vermelha.jpg', 'Resumo
+- Resistente;
+- De alta qualidade e durabilidade;
+- Superfície totalmente texturizada;
+- Indicado para mordidas regulares;
+- Diminui a ansiedade e a depressão;
+- Ideal para realizar brincadeiras de pega;
+- Além da diversão, estimula a prática do exercício físico;
+
+- Imagem meramente ilustrativa, cores e tons variados.
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+O Brinquedo Duratoys Bola Cravo Pula Pula Vermelha, é estimulante e ideal para todas as idades principalmente para os filhotes que estão na fase do nascer dos dentes. A bola cravo ajuda a massagear a gengiva, proporcionando alívio e conforto. Fabricado com matéria prima de qualidade que não agride a saúde do pet. Além disso seu pet vai ficar entretido, praticando atividades que auxiliam em seu desenvolvimento e disciplina.
+
+', '0001CA-BCOP'),
+       ('Brinquedo Frisbee Furacão Plástico Black', 'Frisbees', 9.81, '../images/products/Frisbee-Furacão-Plástico-Black.jpg', 'Resumo
+- Leve e resistente;
+- Diversão e Interatividade;
+- Produzido em Polipropileno;
+- Para brincadeiras na água ou na terra;
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Imagens meramente ilustrativas, podendo ocorrer variações de tons e cores.
+
+Detalhes
+O Brinquedo Frisbee Furacão Pet Pop Plástico Black é perfeito para jogar e o Pet ir buscar, uma prática que estimula o lado cognitivo dos peludinhos, e os aproxima dos tutores. Produzido com material de alta qualidade, e com a borda em alto relevo, os dentes do Pet vão aderir, e ele poderá carregar o disco sem dificuldade.
+
+', '0002CA-BFFP'),
+       ('Brinquedo Chalesco Pelúcia Manopla Colorida - Tam. Único', 'Pelúcias', 21.68, '../images/products/Pelúcia-Manopla-Colorida.jpg', 'Resumo
+- Macio e resistente;
+- Controla a ansiedade;
+- Material de alta qualidade;
+- Feito especialmente para cães;
+- Incentiva atividade física para seu pet.
+
+
+*Imagem meramente ilustrativa.
+
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+O Brinquedo Chalesco Pelúcia Manopla Colorida é leve, ótimo para seu pet levar de um lado para o outro, sacudir, jogar. Além do seu amiguinho ficar longe da solidão e monotonia vai deixar as brincadeiras mais divertidas.
+
+Brinquedo Manopla Colorida em Pelúcia Chalesco.Lindo brinquedo para cães de pequeno porte ou gatos na forma de manopla.
+', '0003CA-BMCP'),
+       ('Brinquedo Osso Nylon Sabor Bacon para Cães', 'Halteres', 62.99, '../images/products/Osso-Nylon-Sabor-Bacon-para-Cães.jpg', 'Resumo
+- Auxilia no combate ao mal hálito;
+- Mordedor em nylon maciço atóxico;
+- Previne e remove placas bacterianas;
+- Ajuda a controlar a ansiedade e o estresse;
+- Sabor de bacon que instiga e satisfaz o instinto de roer dos caninos;
+- Possui ranhuras funcionais que permite a utilização de petiscos úmidos e outros alimentos.
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+O Brinquedo Osso Nylon Sabor Bacon para Cães é perfeito para dar uma relaxada no seu pet durante a brincadeira. Com suas ranhuras funcionais, a brincadeira ganha um cuidado a mais pois auxilia no combate ao mal hálito, remoção de placa bacteriana e o sabor bacon instiga o pet a roer o mordedor.
+
+
+', '0004CA-BVLC'),
+       ('Brinquedo de Vinil LCM Bola Cravinho Amarela', 'Bolinhas', 9.44, '../images/products/Bola-Amarela.jpg', 'Resumo
+- Indicado para mordidas regulares, com superfície totalmente texturizada;
+- Atóxico não prejudica a saúde do pet e com um formato divertido;
+- Resistente e totalmente flexível, de alta qualidade e durabilidade;
+- Incentiva atividade física, indicado para cães de todos os portes.
+- Imagem meramente ilustrativa, tons variados.
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+O Brinquedo de Vinil LCM Bola Cravinho Amarela é estimulante e ideal para todas as idade principalmente para os filhotes que estão na fase do nascer dos dentes. A bola cravinho ajuda a massagear a gengiva, proporcionando alivio e conforto. Fabricado com matéria prima de qualidade que não agride a saúde do pet.
+
+', '0005CA-BVLB'),
+       ('Brinquedo Pet Injet Osso Mass Dental Flex Azul', 'Halteres', 8.00, '../images/products/Osso-Mass-Dental-Flex-Azul.jpg', 'Resumo
+- Indicado para mordidas regulares, com superfície totalmente texturizada;
+- Atóxico não prejudica a saúde do pet e com um formato divertido;
+- Resistente e totalmente flexível, de alta qualidade e durabilidade;
+- Incentiva atividade física, indicado para cães de todos os portes.
+
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+O Brinquedo Pet Injet Osso Mass Dental Flex Azul, elaborado em material de qualidade, atóxico e resistente, é um mordedor com cravo que massageia as gengivas eliminando os tártaros. Contribui para que seu cão libere toda energia necessária para se manterem saudáveis e ativos, além de colaborar para o desenvolvimento das habilidades mentais e físicas. Uma ótima opção para a diversão e entretenimento do seu pet.
+
+', '0006CA-BPIO'),
+       ('Brinquedo Chuckit Bola Ultra Squeaker Apito 1 Unidade', 'Bolinhas', 83.69, '../images/products/Bola-Chuckit-Ultra-Squeaket-Apito.png', 'Resumo
+- Com apito interno;
+- Cores atrativas;
+- Flutua na água;
+- Resistente e fácil de limpar;
+- Superfície texturizada, o que ajuda a pegar com mais segurança;
+- Indicado para todos os portes e idades;
+- Ideal para brincadeiras entre você e pet.
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+O Brinquedo Chuckit Bola Ultra Squeaket Apito 1 Unidade, elaborado em borracha durável, é super resistente e fácil de lavar. Com superfície texturizada ajuda o seu cão a ter uma aderência segura, flutua na água é perfeitas para brincadeiras na piscina ou lago. O apito chama a atenção do pet e avisa que é hora de iniciar a brincadeira. Um brinquedo que não pode faltar na caixa do seu amigo, ele vai amar!
+
+', '0007CA-CBUS'),
+       ('Brinquedo LCM Bolinha com Penas Cat Toy Azul para Gato', 'Bolinhas', 7.11, '../images/products/Brinquedo-Bolinha-Toys-Cat.jpg', 'Resumo
+- Bolinha com textura e plumas coloridas e vibrantes;
+- Auxilia na redução da ansiedade e estresse dos felinos;
+- Proporciona atividade física e entretenimento para seu pet;
+- Material de alta qualidade, seguro e não agride a saúde do pet;
+- Textura diferenciada que desperta interesse, leve e super fácil de brincar.
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+O Brinquedo LCM Bolinha com Penas Cat Toy Azul para Gato possuí plumas totalmente atrativas ao seu gatinho. Podendo ser utilizada com erva de gato, deixando o brinquedo ainda mais interessante.
+
+', '0008CA-BLBP');
+       ('Brinquedo Chalesco Pelúcia Macaco', 'Pelúcias', 22.04, '../images/products/Brinquedo-Chalesco-Pelúcia-Macaco.jpg', 'Resumo
+- Possui material macio e resistente, feito com poliéster e algodão;
+- Alivia o estresse e ociosidade, garantindo diversão e entreterimento;
+- Emite som ao ser apertado em um dos brações, em uma das pernas e no corpo;
+- Formato atrativo, estimula o raciocínio do pet, indicado para cães de todos os portes.
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada. *Imagem meramente ilustrativa.
+
+Detalhes
+O Brinquedo Chalesco Pelúcia Macaco é uma ótima opção para satisfazer a vontade morder do seu pet. Os brinquedos incentivam seu cão a canalizar a energia, entretêm e garante diversão, além de estimular a prática das atividades físicas e ajudar seu filho de quatro patas a aliviar o estresse. Eles são confeccionados com toque macio que é agradável e possui textura diferenciada que desperta o interesse e anima a brincadeira. Uma ótima opção para livrar seu cão da ansiedade e do tédio.
+
+
+', '0009CA-BCPM')
+       ('Brinquedo Osso Jambo Anelado Sabor Frango', 'Halteres', 20.61, '../images/products/Osso-Jambo-Anelado-Sabor-Frango.jpg', 'Resumo
+- Reduz o estresse e a depressão;
+- Massageá as gengivas;
+- Fabricado com material de qualidade e flexível;
+- Não agride a saúde do pet;
+- Imagem meramente ilustrativa com tons variadas.
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+O Brinquedo Osso Jambo Anelado Sabor Frango contribui para um ótimo desenvolvimento das articulações bucal e ajuda a manter os dentes limpos e saudáveis, sua textura promove a remoção da placa bacteriana, fazendo com que o mau hálito seja eliminada.
+
+', '0010CA-BOJA')
+       ('Brinquedo Furacão Pet Bola Maciça Super Ball Azul', 'Bolinhas', 39.19, '../images/products/Brinquedo-Furacão-Pet-Bola-Maciça-Super-Ball-Azul.jpg', 'Resumo
+- Indicado para mordidas regulares, com superfície totalmente texturizada;
+- Atóxico não prejudica a saúde do pet e com um formato divertido;
+- Resistente e totalmente flexível, de alta qualidade e durabilidade;
+- Incentiva atividade física, indicado para cães de todos os portes.
+
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+O Brinquedo Furacão Pet Bola Maciça Super Ball Azul foi produzido em material de alta qualidade e durabilidade, seu pet vai estar sempre ativo de forma saudável e divertida! Uma ótima opção para deixar seu amigo longe do stress e da ansiedade.
+
+Bola Maciça Super Ball Furacão Pet, brinquedo fabricado com material de alta qualidade e durabilidade.
+', '0011CA-BMSB')
+       ('Brinquedo Fatcat Kitten Little Laranja', 'Pelúcias', 31.49, '../images/products/Brinquedo-Fatcat-Gatos-Kitten-Little-Laranja.jpg', 'Resumo
+- Com catnip orgânico, possui um formato divertido;
+- Divertido ele ajuda a ativar vários estímulos do felino;
+- Não prejudica a saúde do pet, ideal para morder e arranhar;
+- Diminui o nível de ociosidade e ajuda a combater o stress diário;
+- Incentiva atividade física, indicado para gatos de todos os portes.
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+O Brinquedo Fatcat Kitten Little Laranja vai ser o amigo perfeito para o seu gato. Recheado com o maravilhoso catnip orgânico, possui tamanho perfeito para a diversão do seu pet. Leve, possibilita que seu gato jogue-o para o alto, tornando a brincadeira mais divertida.',, '0012CA-FKLL')
+       ('Brinquedo JW Rattle Ball', 'Bolinhas', 36.89, '../images/products/Brinquedo-JW-Cat-Rattle-Ball.jpg', 'Resumo
+- Material emborrachado e com o interior crocante;
+- Auxilia na redução da ansiedade e estresse dos felinos;
+- Proporciona atividade física e entretenimento para seu pet;
+- Material de alta qualidade, seguro e não agride a saúde do pet;
+- Textura diferenciada que desperta interesse, leve e super fácil de brincar.
+
+É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
+
+Detalhes
+O Brinquedo JW Rattle Ball é perfeito para a distração e entretenimento do seu gato. Elaborado com borracha especial de altíssima qualidade, possui interior crocante e brilhante que atrai os felinos e prende a atenção durante a brincadeira.', '0013CA-BJWB')
+       ('Conjunto Peitoral Style Mesh e Guia Chique', 'Coleiras', 63.92, '../images/products/Kit-Style-meuMiAu-Chique.jpg', 'Resumo
+- Super confortável;
+- Estampas em alta definição;
+- Contém trava de segurança no fecho;
+- Mais segurança e praticidade na hora do passeio.
+
+Para garantir o tamanho correto ao seu pet, compare suas medidas com as do item.
+
+Detalhes
+O Conjunto Peitoral Style Mesh e Guia Chique, confeccionado em tecido poliéster, contém trava de segurança no fecho para evitar que seu gatinho escape. É preciso ter paciência para que seu gato acostume com o peitoral, coloque em casa, um pouco por dia, e quando estiver tranquilo e confortável só curtirem os passeios com segurança e tranquilidade.', '0014CA-CSMA')
+       ('Bandeja Sanitária Furba Cinza para Gatos', 'Caixa de areia', 146.69, '../images/products/FURBA-CHIC.jpg', 'Resumo
+- Contém ótima durabilidade, bandeja sanitária feita de plástico;
+- Indicado para gatos de todas as idades e de todos os portes;
+- Fácil e prático de utilizar, além de dispensar o uso de pás.
+
+Detalhes
+A Bandeja Sanitária Furba Cinza para Gatos é ideal para ser usada por gatos. A parte superior é vazada, conta com uma borda removível que impede que seu pet jogue a areia para fora enquanto cava. Muito higiênica, pois ao peneirar a primeira bandeja o conteúdo ficará na parte inferior e as impurezas na superior, basta jogá-las no lixo e higienizar a parte vazada. Sem sujar as suas mãos, a Bandeja Sanitária Furba está pronta para ser usada novamente, pouco trabalho na hora de recolher e muita economia.
+
+')
+--}}

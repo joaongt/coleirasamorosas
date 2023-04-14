@@ -1,0 +1,57 @@
+ <div class='s-container'>
+    <div class='s-card'>
+      <h1 class="h1"> Cadastrar </h1>
+      
+
+     
+      <div id='msgError'></div>
+
+
+            <div>
+              <form id="form">
+              <div class="label-float">
+                 <input class="input-form" type="text" id="name" name="name" placeholder=" " maxlength="50" required>
+                 <label class="label-name" id="labelNome" for="name">Nome Completo</label>
+              </div>
+  
+              <div class="label-float">
+                  <input class="input-form" type="email" name="email" autocomplete="off" id="email" placeholder=" " maxlength="30" required>
+                  <label class="label-name" id="labelEmail" for="email">E-mail</label>
+              </div>
+
+              <div class="label-float">
+                <input class="input-form" type="text" name="cpf" autocomplete="off" id="cpf" placeholder=" " maxlength="14" required>
+                <label class="label-name" id="labelCpf" for="cpf">CPF</label>
+              </div>
+
+              <div class="label-float">
+                <input class="input-form" type="text" name="tel" autocomplete="off" id="tel" placeholder=" " maxlength="15" required>
+                <label class="label-name" id="labelTel" for="tel">Telefone</label>
+              </div>
+              
+              <div class="label-float">
+                 <input class="input-form" type="password" name="password" id="password" placeholder=" " required>
+                 <label class="label-name" id="labelSenha" for="password">Senha</label>
+                 <i id="verSenha" class="fa-sharp fa-solid fa-eye-slash" aria-hidden="true"></i>                
+              </div>
+  
+              <div class="label-float">
+                 <input class="input-form" type="password" name="confirmPassword" id="confirmPassword" placeholder=" " required>
+                 <label class="label-name" id="labelConfirmSenha" for="confirmPassword">Confirmar Senha</label>
+                 <i id="verConfirmSenha" class="fa-sharp fa-solid fa-eye-slash" aria-hidden="true"></i>
+              </div>
+              
+              <div class='justify-center'>
+                 <button type="submit" id="cadastro" >Cadastrar</button>
+              </div>
+              <div class='justify-center'>
+              <hr id="hr" color="#1e8d90">
+             </div>
+              <p> Já tem o login?
+                <a href='/login'> Clique aqui e faça seu login </a>
+              </p>
+            </form>
+            </div>
+         
+    </div>
+    </div>

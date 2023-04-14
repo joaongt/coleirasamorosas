@@ -1,0 +1,234 @@
+:root {
+    --bg-color: rgb(232, 242, 233);
+    --box-shadow-1: 0 1px 4px hsl(0 4% 1% / 10%);
+    --box-shadow-2: 3px 3px 1px 0px #00000060;
+    --box-shadow-3: -2px solid 4px hsl(0 4% 15% / 10%);
+    --border-bottom: 2px solid #1e8d90;
+    --border-bottom-bag: 1px solid #1e8d90;
+    --border-bottom-bag-input: 2px solid #363e36;
+    --text-color: #1e8d90;
+    --text-color-hover: #36c4c9;
+    --text-color-bag: #363e36;
+    --button-hover: #fff;
+    --bg-color-bar: #cfeed3;
+    --error-color: #ff0000;
+    --error-bg-color: #ffbbbb;
+    --success-color: #00bb00;
+    --success-bg-color: #bbffbe;
+    --black: #000000;
+}
+
+/* WEBSITE BACKGROUND */
+body {
+    background-color: var(--bg-color);
+}
+
+/* ======================================== */
+
+/* HEADER */
+
+    /* HEADER BACKGROUND AND BOX SHADOW */
+    .header{
+        background: var(--bg-color);
+        box-shadow: var(--box-shadow-1);
+    }
+
+    /* DARK-LIGHT MODE COLOR */
+    #mode-switch{
+        color: var(--text-color);
+    }
+    #mode-switch:hover{
+        color: var(--text-color-hover);
+    }
+
+    /* LINKS */
+    .link{
+        color: var(--text-color);
+    }
+    #shopping-bag,
+    #mode-switch,
+    #account{
+        background-color: var(--bg-color);
+    }
+    .bx-search{
+        background-color: var(--bg-color-bar);
+    }
+
+    
+    /* SEARCH */
+    #search-container{
+        background-color: var(--bg-color-bar);
+    }
+    #search-input{
+        background-color: var(--bg-color-bar);
+        -webkit-text-fill-color: var(--text-color);
+    }
+    #search-input::-webkit-search-cancel-button{
+        color: var(--text-color);
+    }
+    #search{
+        color: var(--text-color);
+    }   
+    #search:hover{
+        color: var(--text-color-hover);
+    }
+
+    /* BAG */
+    #shopping-bag{
+        color: var(--text-color);
+    }
+    #shopping-bag:hover{
+        color: var(--text-color-hover);
+    }
+    .bag.active{
+        background-color: var(--bg-color-bar);
+        box-shadow: var(--box-shadow-3);
+        border: var(--border-bottom-bag);
+    }
+    .bag-quantity{
+        border: var(--border-bottom-bag-input);
+        outline-color: var(--text-color);
+    }
+    .bag-title,
+    .bag-product-title,
+    .bag-price,
+    .total-title,
+    .total-price{
+        color: var(--text-color-bag);
+    }
+    .bag-remove{
+        color: var(--error-color);
+    }
+    .bag-remove:hover{
+        color: var(--error-bg-color);
+    }
+    .total{
+        border-top: var(--border-bottom-bag);
+    }
+    .btn-buy{
+        background-color: var(--button-hover);
+        color: var(--text-color);
+    }
+    .btn-buy:hover{
+        background-color: var(--text-color);
+        color: var(--bg-color);
+    }
+    #bag-close{
+        color: var(--text-color);
+    }
+
+
+    #account{
+        color: var(--text-color);
+    }
+    #account:hover{
+        color: var(--text-color-hover);
+    }
+  
+
+.card {
+    background-color: var(--bg-color-bar);
+    box-shadow: var(--box-shadow-2);
+}
+h1{
+    color: var(--text-color)
+}
+.label-float input{
+    border-bottom: var(--border-bottom);
+    background-color: var(--bg-color-transparent);
+    -webkit-text-fill-color: var(--black);
+}
+.label-float input:focus{
+    border-bottom: var(--border-bottom);
+}
+  
+.label-float label{
+    color: var(--text-color);
+}
+.label-float input:focus + label,
+.label-float input:valid + label{
+    color: var(--text-color);
+}
+.justify-center button{
+    background-color: transparent;
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+#cadastro:hover{
+    background-color: var(--text-color);
+    color: var(--button-hover);
+}
+.fa-eye{
+    color: var(--text-color);
+}
+.justify-center hr{
+    color: var(--text-color);
+}
+p{
+    color: var(--text-color);
+}
+a{
+    color: var(--text-color);
+}
+
+a:hover{
+    color: var(--text-color-hover);
+}
+  
+#msgError{
+    color: var(--error-color);
+    background-color: var(--error-bg-color);
+}
+  
+#msgSuccess{
+    color: var(--success-color);
+    background-color: var(--success-bg-color);
+}
+
+#search-container input{
+    background-color: var(--bg-color-bar);
+    -webkit-text-fill-color: var(--text-color);
+}
+#search-container button{
+    background-color: var(--bg-color-transparent);
+    color: var(--text-color);
+}
+
+.button-value{
+    color: var(--text-color);
+    background-color: var(--bg-color-bar);
+}
+.button-value:hover{
+    color: var(--bg-color-bar);
+    background-color: var(--text-color);
+}
+
+.active {
+    background-color: var(--text-color);
+    color: var(--button-hover);
+  }
+
+.card {
+background-color:var(--bg-color-bar);
+}
+.add-bag{
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+.add-bag:hover{
+    background-color: var(--text-color-hover);
+}
+.footer{
+    background-color: var(--bg-color-bar);
+}
+
+.text-content-2 h3{
+    color: var(--text-color-hover);
+}
+.second-content{
+    background-color: var(--bg-color-bar);
+}
+.credit-1,
+.credit-2{
+    background-color: var(--bg-color);
+}

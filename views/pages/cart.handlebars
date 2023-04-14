@@ -1,0 +1,13 @@
+{{#each bagItems}}
+<div class="bag-box">
+<img src="{{this.image_path}}" alt="{{this.product_name}}" class="bag-img">
+<div class="detail-box">
+    <div class="bag-product-title">{{this.product_name}}</div>
+    <div class="bag-price">R$ <span class="price-prod">{{this.price}}</span></div>
+    <input type="number" value="{{this.quantity}}" min="1" max="50" class="bag-quantity">
+</div>
+
+<!-- REMOVE BAG -->
+<i class='bx bx-trash-alt bag-remove' data-product-id="{{this.id}}"></i>
+</div>
+{{/each}}   

@@ -1,0 +1,49 @@
+<section class="shop container wrapper">
+
+		<h2 class="section-title">Produtos</h2>
+
+			<!-- FILTER PRODUCTS -->
+		<form class="filter-class" action="/shop" method="GET">
+			<div class="form-group">
+				<select class="form-control" name="category">
+					<option value="all">Todas as categorias</option>
+					<option value="Bolinhas">Bolinhas</option>
+					<option value="Pelúcias">Pelúcias</option>
+					<option value="Coleiras">Coleiras</option>
+					<option value="Frisbees">Frisbees</option>
+					<option value="Halteres">Halteres</option>
+					<option value="Caixa de areia">Caixa de areia</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Filtrar</button>
+			</div>
+		</form>
+
+
+
+
+			<div id="products">
+			{{#each prods}}
+				<div class="card {{this.category}}">
+					<div class="divisor">
+						<a href="/product/{{this.id}}"><img class="product-img" src="{{this.image}}" alt="{{this.productName}}"></a>
+						<div class="prodks">
+						<h2 class="product-name">{{this.productName}}</h2>
+						<span>R$ </span><span class="product-price">{{this.price}}</span>
+						<i class="bx bx-shopping-bag add-bag" data-product-id="{{this.id}}" data-product-img="{{this.image}}" data-product-name="{{this.productName}}" data-product-price="{{this.price}}"></i>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+			</div>
+</section>
+{{!-- Display the pagination links --}}
+<ul class="pagination">
+  {{#each pages}}
+    <li class="page-item {{#if active}}active{{/if}}">
+      <a class="page-link" href="/shop?page={{number}}&search={{search}}&category={{category}}">{{number}}</a>	
+    </li>
+  {{/each}}
+</ul>
+

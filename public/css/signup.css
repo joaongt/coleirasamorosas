@@ -1,0 +1,128 @@
+.s-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.s-card {
+  padding: 20px;
+  border-radius: 4%;
+  width: 90%;
+  max-width: 400px;
+}
+
+.h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.input-form {
+  width: 100%;
+  padding: 10px;
+  display: inline-block;
+  border: 0;
+  outline: none;
+  min-width: 180px;
+  font-size: 16px;
+  transition: all 0.3s ease-out;
+  border-radius: 0;
+}
+
+.label-float {
+  position: relative;
+  padding-top: 13px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.label-name {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 13px;
+  transition: all 0.3s ease-out;
+}
+
+.input-form:focus + .label-name,
+.input-form:valid + .label-name {
+  font-size: 13px;
+  margin-top: 0px;
+}
+
+#cadastro {
+  padding: 7px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.4s ease-out;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.justify-center hr {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 80%;
+}
+
+p {
+  font-size: 16px;
+  text-align: center;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+
+#msgError {
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .s-container {
+    margin-top: 20px;
+  }
+  
+  .s-card {
+    padding: 15px;
+    max-width: 90%;
+  }
+  
+  .h1 {
+    font-size: 24px;
+  }
+  
+  .input-form {
+    font-size: 14px;
+  }
+  
+  #cadastro {
+    font-size: 12px;
+  }
+  
+  p {
+    font-size: 14px;
+  }
+}

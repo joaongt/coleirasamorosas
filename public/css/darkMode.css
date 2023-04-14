@@ -1,0 +1,176 @@
+:root {
+    --bg-color: #111;
+    --text-color: #fff;
+    --text-color-hover: #ddd;
+    --text-color-bag: #ddd;
+    --button-hover: #000;
+    --bg-color-bar: #222;
+    --error-color: #ff6666;
+    --error-bg-color: #551515;
+    --success-color: #00ff00;
+    --success-bg-color: #227722;
+    --black: #ffffff;
+  }
+  
+  /* WEBSITE BACKGROUND */
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  /* ======================================== */
+  
+  /* HEADER */
+  
+  /* HEADER BACKGROUND AND BOX SHADOW */
+  .header {
+    background: var(--bg-color-bar);
+    box-shadow: none;
+  }
+  
+  /* DARK-LIGHT MODE COLOR */
+  #mode-switch {
+    color: var(--text-color);
+  }
+  #mode-switch:hover {
+    color: var(--text-color-hover);
+  }
+  
+  /* LINKS */
+  .link {
+    color: var(--text-color);
+  }
+  .link:hover {
+    color: var(--text-color-hover);
+  }
+
+    #shopping-bag,
+    #mode-switch,
+    #account{
+        background-color: var(--bg-color);
+    }
+  
+  /* SEARCH */
+  #search-container {
+    background-color: var(--bg-color-bar);
+  }
+  #search-input {
+    background-color: var(--bg-color-bar);
+    -webkit-text-fill-color: var(--text-color);
+  }
+  #search-input::-webkit-search-cancel-button {
+    color: var(--text-color);
+  }
+  #search {
+    color: var(--text-color);
+  }
+  #search:hover {
+    color: var(--text-color-hover);
+  }
+  
+  /* BAG */
+  #shopping-bag {
+    color: var(--text-color);
+  }
+  #shopping-bag:hover {
+    color: var(--text-color-hover);
+  }
+  .bag.active {
+    background-color: var(--bg-color-bar);
+    box-shadow: none;
+    border: none;
+  }
+  .bag-quantity {
+    border: none;
+    outline-color: var(--text-color);
+  }
+  .bag-title,
+  .bag-product-title,
+  .bag-price,
+  .total-title,
+  .total-price {
+    color: var(--text-color-bag);
+  }
+  .bag-remove {
+    color: var(--error-color);
+  }
+  .bag-remove:hover {
+    color: var(--error-bg-color);
+  }
+  .total {
+    border-top: none;
+  }
+  .btn-buy {
+    background-color: var(--button-hover);
+    color: var(--text-color);
+  }
+  .btn-buy:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color-bar);
+  }
+  #bag-close {
+    color: var(--text-color);
+  }
+  
+  #account {
+    color: var(--text-color);
+  }
+  #account:hover {
+    color: var(--text-color-hover);
+  }
+  
+  .card {
+    background-color: var(--bg-color-bar);
+    box-shadow: none;
+  }
+  h1 {
+    color: var(--text-color);
+  }
+  .label-float input {
+    border-bottom: 2px solid var(--text-color);
+    background-color: var(--bg-color-transparent);
+    -webkit-text-fill-color: var(--black);
+  }
+  .label-float input:focus {
+    border-bottom: 2px solid var(--text-color-hover);
+  }
+  .label-float label {
+    color: var(--text-color);
+  }
+  .label-float input:focus + label,
+  .label-float input:valid + label {
+    color: var(--text-color-hover);
+  }
+  .justify-center button {
+    background-color: transparent;
+    border-color: var(--text-color);
+    color: var(--text-color);
+  }
+  #cadastro:hover {
+    background-color: var(--text-color);
+    color: var(--button-hover);
+  }
+  .fa-eye {
+    color: var(--text-color);
+  }
+  .justify-center hr {
+    color: var(--text-color);
+  }
+  p {
+    color: var(--text-color);
+  }
+.dark-mode{
+        --bg-color: #111;
+        --text-color: #fff;
+        --text-color-hover: #ddd;
+        --text-color-bag: #ddd;
+        --button-hover: #000;
+        --bg-color-bar: #222;
+        --error-color: #ff6666;
+        --error-bg-color: #551515;
+        --success-color: #00ff00;
+        --success-bg-color: #227722;
+        --black: #ffffff;
+        transition: all .01s ease;
+      
+}  

@@ -1,0 +1,147 @@
+<h1 class="h1-title">Pets</h1>
+
+<form method="GET" class="filter-form">
+  <label for="type-filter">Filtrar por:</label>
+  <select name="type" id="type-filter">
+    <option value="">Todos os tipos</option>
+    <option value="dog">Cachorro</option>
+    <option value="cat">Gato</option>
+  </select>
+
+  <select name="breed" id="breed-filter">
+    <option value="">Todas as raças</option>
+    {{#each breeds}}
+      <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+
+  <button type="submit" class="filter-button">Filtrar</button>
+</form>
+
+
+<div class="pet-flex">
+  <!-- PRODUCTS CONTENT -->
+  <div id="pets">
+    {{#each petss}}
+    <div class="cards {{this.breed}}">
+      <div class="divisor">
+        <img class="pet-img" src="{{this.image_path}}" alt="{{this.name}}">
+        <h2 class="pet-name">{{this.name}}</h2>
+        <span class="pet-race">Raça: {{this.breed}}</span>
+        <button class="adopt" data-id="{{this.id}}" data-breed="{{this.breed}}" data-age="{{this.age}}"
+          data-name="{{this.name}}" data-img="{{this.image_path}}" data-phone_number="{{this.phoneNumber}}"
+          data-pet_info="{{this.petInfo}}">Adotar</button>
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- PAGINATION LINKS -->
+    <div class="pagination">
+        {{#if hasPrev}}
+        <a href="?page={{prevPage}}&breed={{selectedBreed}}&type={{selectedType}}"><i class='bx bxs-chevron-left'></i></a>
+        {{/if}}
+        {{#each pages}}
+        <li class="page-item {{#if active}}active{{/if}}">
+            <a class="page-link" href="/adoption?page={{number}}&breed={{selectedBreed}}&type={{selectedType}}">{{number}}</a>	
+        </li>
+        {{/each}}
+        {{#if hasNext}}
+        <a href="?page={{nextPage}}&breed={{selectedBreed}}&type={{selectedType}}"><i class='bx bxs-chevron-right'></i></a>
+        {{/if}}
+    </div>
+
+  </div>
+</div>
+
+
+<div id="overlay"></div> <!-- This div will cover the background -->
+
+    <button class="adopt-btn" style="position: absolute; bottom: 768px; right: 18px" onclick="openSignPet()">Cadastrar um pet</button>
+
+<div class="adoption-one">
+    <div class="want-to-adopt">
+        <h2 class="h2-to-adopt">Cadastre seu animal abaixo</h2>
+        <p>Insira as Informações referentes ao seu pet</p>
+        <form method="POST" action="/submit-pet-form" enctype="multipart/form-data" class="pet-form">
+            <div class="pet-div">
+                <div class="row-pet">
+                    <label id="labelPetName" class="pet-label">Nome:</label>
+                    <input id="input-pet-name" name="petName" type="text" placeholder="" required>
+                </div>
+                <div class="row-pet">
+                    <label class="pet-label" for="pet-age">Idade:</label>
+                    <div class="select-wrapper">
+                        <select name="petAge" id="pet-age" required>
+                            <option value=""></option>
+                            <option value="1">1 ano</option>
+                            <option value="2">2 anos</option>
+                            <option value="3">3 anos</option>
+                            <option value="4">4 anos</option>
+                            <option value="5">5 anos</option>
+                            <option value="6">6 anos</option>
+                            <option value="7">7 anos</option>
+                            <option value="8">8 anos</option>
+                            <option value="9">9 anos</option>
+                            <option value="10">10 anos</option>
+                            <option value="11">11 anos</option>
+                            <option value="12">12 anos</option>
+                            <option value="13">13 anos</option>
+                            <option value="14">14 anos</option>
+                            <option value="15">15 anos</option>
+                            <option value="16">16 anos</option>
+                            <option value="17">17 anos</option>
+                            <option value="18">18 anos</option>
+                            <option value="19">19 anos</option>
+                            <option value="20">20 anos</option>
+                        </select>
+                        <div class="select-arrow"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="pet-div-hehe">
+                <div class="pet-radio">
+                    <label class="pet-label-hehe">Cachorro ou gato?</label>
+                    <div class="radio-pet-hehe">
+                        <input id="input-dog" type="radio" name="petType" value="dog">Cachorro
+                        <input id="input-cat" type="radio" name="petType" value="cat">Gato
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper">
+                <h5 for="race">Escolha a raça do seu pet:</h5>
+                <div class="select-btn">
+                    <span>Escolha uma raça</span>
+                    <i class="uil uil-angle-down"></i>
+                </div>
+                <div class="content">
+                    <div class="search">
+                        <i class="uil uil-search"></i>
+                        <input spellcheck="false" id="pet-race" type="text" placeholder="Pesquisar raças...">
+                    </div>
+                    <ul class="options"></ul>
+                    <input id="hide-input" type="text" name="petBreed">
+                </div>
+            </div>
+            <div class="pet-div">
+                <div class="row-pet">
+                    <label class="pet-label" id="labelTelNumber">Seu número de telefone:</label>
+                    <input id="input-phone-number" name="phoneNumber" type="tel" placeholder="" maxlength="15" required>
+                </div>
+            </div>
+            <div class="pet-div">
+                <div class="row-pet">
+                    <label class="pet-label">Informações adicionais sobre o seu pet:</label>
+                    <textarea id="input-pet-info" name="petInfo"></textarea>
+                </div>
+            </div>
+            <label class="pet-label">Insira uma imagem do seu pet:</label>
+            <div class="file-input" id="file-dropzone">
+                <input type="file" id="input-pet-img" name="input-pet-img" accept="image/*">
+                <label class="file-name" for="input-pet-img">Selecione uma imagem</label>
+            </div>
+            <button type="submit" class="adopt-btn" id="cadastro">Cadastrar Pet</button>
+            <!-- ADOPT CLOSE -->
+            <i class='bx bx-x' onclick="closeSignPet()" id="bag-close"></i>
+        </form>
+    </div>
+</div>

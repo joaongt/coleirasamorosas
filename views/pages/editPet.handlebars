@@ -1,0 +1,27 @@
+ <h1>Edit Pet Information</h1>
+    <form method="POST" action="/edit-pet/{{ pet.id }}" enctype="multipart/form-data">
+      <label for="input-pet-name">Name:</label>
+      <input type="text" name="petName" id="input-pet-name" value="{{ pet.name }}" required><br>
+
+      <label for="input-pet-age">Age:</label>
+      <input type="number" name="petAge" id="input-pet-age" value="{{ pet.age }}" required><br>
+
+      <label for="input-pet-type">Type:</label>
+      <input type="text" name="petType" id="input-pet-type" value="{{ pet.type }}" required><br>
+
+      <label for="input-pet-breed">Breed:</label>
+      <input type="text" name="petBreed" id="input-pet-breed" value="{{ pet.breed }}" required><br>
+
+      <label for="input-phone-number">Phone Number:</label>
+      <input type="text" name="phoneNumber" id="input-phone-number" value="{{ pet.phoneNumber }}" required><br>
+
+      <label for="input-pet-info">Pet Information:</label>
+      <textarea name="petInfo" id="input-pet-info">{{ pet.petInfo }}</textarea><br>
+
+      <label for="input-pet-img">Image:</label>
+      <input type="file" name="input-pet-img" id="input-pet-img"><br>
+
+      <img src="{{ pet.image_path }}" alt="{{ pet.name }}">
+
+      <button type="submit">Submit</button>
+    </form>

@@ -1,0 +1,125 @@
+.l-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 100px;
+  }
+  
+  .l-card {
+    padding: 30px;
+    border-radius: 4%;
+    width: 400px;
+  }
+  
+  .h1{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+.input-float{
+    width: 100%;
+    padding: 5px 5px;
+    display: inline-block;
+    border: 0;
+    border-bottom: 2px solid #1e8d90;
+    background-color: transparent;
+    outline: none;
+    min-width: 180px;
+    font-size: 16px;
+    transition: all .3s ease-out;
+    border-radius: 0;
+
+}
+
+.label-float{
+    position: relative;
+    padding-top: 13px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.input-float:focus{
+    border-bottom: 2px solid #1e8d90;   
+}
+
+.label-name{
+    color: #1e8d90;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 13px;
+    transition: all .3s ease-out;
+}
+
+.input-float:focus + .label-name,
+.input-float:valid + .label-name{
+    font-size: 13px;
+    margin-top: 0;
+    color: #1e8d90
+}
+
+.btn-class{
+    background-color: transparent;
+    border-color: #1e8d90;
+    color: #1e8d90;
+    padding: 7px;
+    font-weight: bold;
+    font-size: 12pt;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all .4s ease-out;
+}
+
+.btn-class:hover{
+    background-color: #1e8d90;
+    color: #fff;
+}
+
+.justify-center{
+    display: flex;
+    justify-content: center;
+}
+
+.justify-center hr{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 80%;
+    color: #1e8d90;
+}
+
+.par{
+    color: #1e8d90;
+    font-size: 14pt;
+    text-align: center;
+}
+
+.a-link{
+    color: #1e8d90;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all .3s ease-out;
+}
+
+.a-link:hover{
+    color: #36c4c9;
+}
+
+.fa-eye,
+.fa-eye-slash{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#msgError{
+    text-align: center;
+    color: #ff0000;
+    background-color: #ffbbbb;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+}

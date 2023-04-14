@@ -1,0 +1,23 @@
+ 
+  /* Styles for the item element */
+  .item {
+    margin-top: 10em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #cfeed3;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-left: 18em;
+    margin-right: 18em;
+  }
+  #bag-remove-id{
+    margin-top: .7em;
+  }
+  #total-id{
+    margin-left: 18em;
+    margin-right: 18em;
+  }
+  

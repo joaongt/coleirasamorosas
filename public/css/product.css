@@ -1,0 +1,111 @@
+.irbaixo {
+  margin-top: 4em;
+  margin-right: 15em;
+  margin-left: 15em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-right: 20px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  margin-bottom: .5rem;
+}
+.product-pic {
+  width: 300px;
+  height: 300px;
+}
+.products-info{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-left: 3em;
+
+}
+
+.product-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.product-row h1.title {
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.baixinho{
+  margin-top: 10em;
+}
+
+.colorCat {
+  margin-left: 16em; 
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.product-row .price {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product-row .price .current {
+  font-weight: bold;
+  color: #333;
+}
+
+article {
+  margin-bottom: 20px;
+}
+article h5 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+article p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.add {
+  text-align: center;
+  margin-top: 20px;
+}
+.add-bag {
+  background-color: #1e8d90;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.add button:hover {
+  background-color: #197679;
+}
+.product-all{
+  border-bottom: #333;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#hiide{
+  display: none;
+}
