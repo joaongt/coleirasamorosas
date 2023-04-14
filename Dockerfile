@@ -13,9 +13,6 @@ RUN npm install
 # Copy the current directory contents to /app
 COPY . .
 
-# Build the application
-RUN npm run build
-
 # Expose port 5500
 EXPOSE 5500
 
