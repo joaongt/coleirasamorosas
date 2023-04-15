@@ -247,20 +247,8 @@ router.get('/adoption', async (req, res) => {
   const limit = 2;
   const offset = (page - 1) * limit;
 
-  
-
   // create a connection to the database
-  const connection = mysql2.createConnection({
-    host: 'aws.connect.psdb.cloud',
-    user: '7c4qrqo5l7b58hxllyt1',
-    password: 'pscale_pw_z1olLN1HJWYNB28oQteFgzgHZ7ImT2Zl8APewnjBBro',
-    database: 'primeiro',
-    ssl: {
-      rejectUnauthorized: true
-    }
-  });
-  
-  
+  const connection = mysql2.createConnection(process.env.DATABASE_URL);
 
   // connect to the database and execute the query
   connection.connect((error) => {
@@ -523,7 +511,7 @@ router.post("/add-to-cart", async (req, res) => {
       (async () => {
           try {
               // Check if the item already exists in the cart
-              const [existingItem] = await query("SELECT id, quantity FROM bag_items WHERE user_id = ? AND product_id = ?", [userId, productId]);
+              const [existingItem] = await query("SELECT id, quantity FROM cart_items WHERE user_id = ? AND product_id = ?", [userId, productId]);
 
               if (existingItem) {
                 // Item already exists, update its quantity
