@@ -247,8 +247,20 @@ router.get('/adoption', async (req, res) => {
   const limit = 2;
   const offset = (page - 1) * limit;
 
+  
+
   // create a connection to the database
-  const connection = mysql2.createConnection(process.env.DATABASE_URL);
+  const connection = mysql2.createConnection({
+    host: 'aws.connect.psdb.cloud',
+    user: '7c4qrqo5l7b58hxllyt1',
+    password: 'pscale_pw_z1olLN1HJWYNB28oQteFgzgHZ7ImT2Zl8APewnjBBro',
+    database: 'primeiro',
+    ssl: {
+      rejectUnauthorized: true
+    }
+  });
+  
+  
 
   // connect to the database and execute the query
   connection.connect((error) => {
