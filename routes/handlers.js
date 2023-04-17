@@ -161,9 +161,6 @@ router.post('/auth/register', async (req, res) => {
 
 })
 
-const mysql2 = require('mysql2');
-const util = require('util');
-
 router.get('/shop', async (req, res) => {
   // Extract search and category from query parameters
   const search = req.query.search ? `${req.query.search}` : '';
