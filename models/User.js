@@ -2,15 +2,7 @@ import mysql2 from 'mysql2/promise';
 
 // Create a connection pool to the MySQL server
 // const pool = await mysql2.createConnection
-const pool = mysql2.createPool({
-  host: 'aws.connect.psdb.cloud',
-  user: '4k0ga9x5tjjuxazxy4e5',
-  password: 'pscale_pw_XwDRFyarrnOkK11wOkXthPvLFBZdXoLhHoayIWJWyaa',
-  database: 'primeiro',
-  ssl: {
-    rejectUnauthorized: true
-  }
-});
+const pool = mysql2.createPool(process.env.DATABASE_URL);
 
 // Define the User model
 export const User = {
