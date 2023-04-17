@@ -18,7 +18,8 @@ import cookieParser from 'cookie-parser';
 import nodemailer from 'nodemailer';
 import paypal from 'paypal-rest-sdk';
 
-
+  // Create a connection to the database
+  const connection = mysql2.createConnection(process.env.DATABASE_URL);
 
 
 
@@ -170,10 +171,9 @@ router.get('/shop', async (req, res) => {
   const perPage = 4;
   const offset = (page - 1) * perPage;
 
-  // Create a connection to the database
-  const connection = mysql2.createConnection(process.env.DATABASE_URL);
-
   try {
+     // create a connection to the database
+  const connection = mysql2.createConnection(process.env.DATABASE_URL);
     // Connect to the database and execute the query
     await connection.promise().connect();
   
@@ -246,9 +246,6 @@ router.get('/adoption', async (req, res) => {
   // calculate the offset and limit for pagination
   const limit = 2;
   const offset = (page - 1) * limit;
-
-  // create a connection to the database
-  const connection = mysql2.createConnection(process.env.DATABASE_URL);
 
   // connect to the database and execute the query
   connection.connect((error) => {
