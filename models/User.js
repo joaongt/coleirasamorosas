@@ -4,8 +4,8 @@ import mysql2 from 'mysql2/promise';
 // const pool = await mysql2.createConnection
 const pool = mysql2.createPool({
   host: 'aws.connect.psdb.cloud',
-  user: '4k0ga9x5tjjuxazxy4e5',
-  password: 'pscale_pw_XwDRFyarrnOkK11wOkXthPvLFBZdXoLhHoayIWJWyaa',
+  user: '9g96mpg59ifhisx5683w',
+  password: 'pscale_pw_CT3ZzFc28Paf77pAaDTSNiJdemUxCIEj1KbyqGBleZm',
   database: 'primeiro',
   ssl: {
     rejectUnauthorized: true
