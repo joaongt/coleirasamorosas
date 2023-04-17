@@ -18,9 +18,6 @@ import cookieParser from 'cookie-parser';
 import nodemailer from 'nodemailer';
 import paypal from 'paypal-rest-sdk';
 
-  // Create a connection to the database
-  const connection = mysql2.createConnection(process.env.DATABASE_URL);
-
 
 
 const router = express.Router();
