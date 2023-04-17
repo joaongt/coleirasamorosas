@@ -161,6 +161,9 @@ router.post('/auth/register', async (req, res) => {
 
 })
 
+const mysql2 = require('mysql2');
+const util = require('util');
+
 router.get('/shop', async (req, res) => {
   // Extract search and category from query parameters
   const search = req.query.search ? `${req.query.search}` : '';
@@ -172,68 +175,86 @@ router.get('/shop', async (req, res) => {
   const offset = (page - 1) * perPage;
 
   try {
-     // create a connection to the database
-  const connection = mysql2.createConnection(process.env.DATABASE_URL);
-    // Connect to the database and execute the query
-    await connection.promise().connect();
-  
-    let products, totalCount;
+    // const pool = await mysql2.createConnection
+    const pool = mysql2.createPool({
+      host: 'aws.connect.psdb.cloud',
+      user: '4k0ga9x5tjjuxazxy4e5',
+      password: 'pscale_pw_XwDRFyarrnOkK11wOkXthPvLFBZdXoLhHoayIWJWyaa',
+      database: 'primeiro',
+      ssl: {
+        rejectUnauthorized: true
+      }
+    });
 
-    if (category === 'all') {
-      // Query all products if filter category is 'all'
-      [products] = await connection.promise().query(
-        `SELECT * FROM products WHERE productName LIKE ? ORDER BY id LIMIT ? OFFSET ?`,
-        [`%${search}%`, perPage, offset]
+    pool.getConnection(async (err, connection)  => {
+      if (err) {
+        console.error('Error connecting to database:', err);
+        res.status(500).send('Error connecting to database');
+        return;
+      }
+  
+      const query = util.promisify(connection.query).bind(connection);
+  
+      let products, totalCount;
+
+      if (category === 'all') {
+        // Query all products if filter category is 'all'
+        [products] = await query(
+          `SELECT * FROM products WHERE productName LIKE ? ORDER BY id LIMIT ? OFFSET ?`,
+          [`%${search}%`, perPage, offset]
+        );
+  
+        [[totalCount]] = await query(
+          `SELECT COUNT(*) AS count FROM products WHERE productName LIKE ?`,
+          [`%${search}%`]
+        );
+      } else {
+        // Query products by category if filter category is not 'all'
+        [products] = await query(
+          `SELECT * FROM products WHERE category = ? AND productName LIKE ? ORDER BY id LIMIT ? OFFSET ?`,
+          [category, `%${search}%`, perPage, offset]
+        );
+  
+        [[totalCount]] = await query(
+          `SELECT COUNT(*) AS count FROM products WHERE category = ? AND productName LIKE ?`,
+          [category, `%${search}%`]
+        );
+      }
+  
+      // Generate filter options for categories
+      const [categories] = await query(
+        `SELECT DISTINCT category FROM products`
       );
   
-      [[totalCount]] = await connection.promise().query(
-        `SELECT COUNT(*) AS count FROM products WHERE productName LIKE ?`,
-        [`%${search}%`]
-      );
-    } else {
-      // Query products by category if filter category is not 'all'
-      [products] = await connection.promise().query(
-        `SELECT * FROM products WHERE category = ? AND productName LIKE ? ORDER BY id LIMIT ? OFFSET ?`,
-        [category, `%${search}%`, perPage, offset]
-      );
+      // Calculate the number of pages
+      const pageCount = Math.ceil(totalCount.count / perPage);
+      const pages = [];
+      for (let i = 1; i <= pageCount; i++) {
+        // Include the search parameter in pagination links
+        pages.push({ number: i, active: i === page, search: search, category: category });
+      }
   
-      [[totalCount]] = await connection.promise().query(
-        `SELECT COUNT(*) AS count FROM products WHERE category = ? AND productName LIKE ?`,
-        [category, `%${search}%`]
-      );
-    }
-  
-    // Generate filter options for categories
-    const [categories] = await connection.promise().query(
-      `SELECT DISTINCT category FROM products`
-    );
-  
-    // Calculate the number of pages
-    const pageCount = Math.ceil(totalCount.count / perPage);
-    const pages = [];
-    for (let i = 1; i <= pageCount; i++) {
-      // Include the search parameter in pagination links
-      pages.push({ number: i, active: i === page, search: search, category: category });
-    }
-  
-    // Render the page with the products, categories, and pagination links
-    res.render('pages/shop', {
-      prods: products,
-      title: 'Loja | Coleiras Amorosas',
-      style: 'shop.css',
-      script: 'shop.js',
-      script2: 'shopBagConfig.js',
-      search: search,
-      categories: categories,
-      selectedCategory: category,
-      pages: pages
+      // Render the page with the products, categories, and pagination links
+      res.render('pages/shop', {
+        prods: products,
+        title: 'Loja | Coleiras Amorosas',
+        style: 'shop.css',
+        script: 'shop.js',
+        script2: 'shopBagConfig.js',
+        search: search,
+        categories: categories,
+        selectedCategory: category,
+        pages: pages
+      });
+      
+      connection.release();
     });
   } catch (error) {
     console.error('Error executing query:', error);
-  } finally {
-    connection.end();
+    res.status(500).send('Error executing query');
   }
 });
+
 
 
 router.get('/adoption', async (req, res) => {
@@ -494,7 +515,15 @@ router.post("/add-to-cart", async (req, res) => {
   const productName = req.body.productName;
   const price = req.body.price;
 
-  const pool = mysql2.createPool(process.env.DATABASE_URL);
+  const pool = mysql2.createPool({
+    host: 'aws.connect.psdb.cloud',
+    user: '4k0ga9x5tjjuxazxy4e5',
+    password: 'pscale_pw_XwDRFyarrnOkK11wOkXthPvLFBZdXoLhHoayIWJWyaa',
+    database: 'primeiro',
+    ssl: {
+      rejectUnauthorized: true
+    }
+  });
 
   pool.getConnection((error, connection) => {
       if (error) {
