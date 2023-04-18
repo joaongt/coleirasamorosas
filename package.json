@@ -5,7 +5,6 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "start": "nodemon app.js",
     "render-start": "node app.js"
   },
   "type": "module",
