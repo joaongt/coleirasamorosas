@@ -220,15 +220,16 @@ checkoutBtn.addEventListener('click', () => {
       total: total
     })
   })
-  .then(response => response.text())
-  .then(script => {
-    // Execute the JavaScript code to initiate the PayPal payment flow
-    const scriptElem = document.createElement('script');
-    scriptElem.textContent = script;
-    document.body.appendChild(scriptElem);
-
-    // Redirect to PayPal checkout page
-    window.location.href = 'https://www.paypal.com/checkoutnow?token=' + script.match(/(?<=token=)[\w-]+/);
+  .then(async response => {
+    if (!response.ok) {
+      const text = await response.text();
+      let msg = text;
+      try { msg = JSON.parse(text).msg; } catch (e) {}
+      showError(msg);
+      return;
+    }
+    // The server answers with the PayPal approval link
+    window.location.href = await response.text();
   })
   .catch(error => {
     console.error('Error initiating PayPal payment:', error);
