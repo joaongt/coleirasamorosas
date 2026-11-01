@@ -5,8 +5,14 @@ import {
     User
 } from '../models/User.js';
 import bcrypt from 'bcrypt';
+import { LOGIN_DAYS } from '../config/auth.js';
 
 const routers = express.Router();
+
+routers.get('/logout', (req, res) => {
+    res.clearCookie('token', { path: '/' });
+    res.redirect('/login');
+});
 // set up session middleware
 // app.use(session({
 //     secret: 'mysecret', // replace with your own secret key
@@ -126,14 +132,17 @@ routers.post('/auth/login', async (req, res) => {
         }
 
         // Create a JWT token by signing it with the user's id and the hashed secret
-        const token = jwt.sign({ id: user.id, email: user.email }, secret);
+        const token = jwt.sign({ id: user.id, email: user.email }, secret, { expiresIn: `${LOGIN_DAYS}d` });
 
         // send token in the response header
         res.header('Authorization', `Bearer ${token}`);
 
-        // // set token as HttpOnly cookie
+        // set token as HttpOnly cookie, sent automatically on every request
         res.cookie('token', token, {
-            maxAge: 60 * 60 * 1000
+            maxAge: LOGIN_DAYS * 24 * 60 * 60 * 1000,
+            httpOnly: true,
+            sameSite: 'lax',
+            path: '/'
         });
         res.status(200).json({
             msg: "Autenticação realizada com sucesso",

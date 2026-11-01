@@ -233,31 +233,6 @@ telV.addEventListener('keypress', () => {
 })
 
 function isAuthenticated() {
-  // Get the token from the cookies
-  const token = getCookie("token");
-
-  // Check if the token is valid
-  if (token) {
-    // TODO: Verify the token to ensure it is valid
-    return true;
-  }
-
-  // If no token is present or the token is invalid, return false
-  return false;
-}
-
-function getCookie(name) {
-  const cookies = document.cookie.split(";");
-
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].trim();
-
-    // Check if this cookie is the one we're looking for
-    if (cookie.startsWith(`${name}=`)) {
-      return cookie.substring(name.length + 1);
-    }
-  }
-
-  // If the cookie isn't found, return null
-  return null;
+  // The server checks the login token and fills data-logged on <body>
+  return document.body.dataset.logged === "true";
 }

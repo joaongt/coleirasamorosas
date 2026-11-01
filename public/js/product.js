@@ -264,17 +264,12 @@ function signUp(){
 }
 
 
-document.getElementById('log-out').addEventListener('click', async (event) => {
+const logOutBtn = document.getElementById('log-out');
+if (logOutBtn) logOutBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
-    // Set the cookie's expiration date to a date in the past
-   document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
-
-
+    // The server clears the login cookie and redirects to /login
     document.getElementById("loading").style.display = "flex";
-    setTimeout(()=>{
-        window.location.href = '/login';
-        document.getElementById("loading").style.display = "none";
-    }, 500)
+    window.location.href = '/logout';
 });
 

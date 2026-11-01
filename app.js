@@ -3,6 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import exphbs from 'express-handlebars';
 import cookieParser from 'cookie-parser';
+import { loadUser } from './config/auth.js';
 import router from './routes/handlers.js';
 import routers from './routes/loginRoutes.js';
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static('public'));
+app.use(loadUser);
 
 // Set up the Handlebars template engine
 app.engine('handlebars', exphbs.engine({defaultLayout: 'structure'}));

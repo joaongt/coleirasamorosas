@@ -16,7 +16,7 @@
 	<script src="https://www.paypal.com/sdk/js?client-id=Afa7sCac9Cx4OHJOGwlF5tGr1VDbMtcgcq43SJi8YOjXHqmxJBF8X_AKvbYNw2YYmPxFhK3cVOEstWkG"></script>
     <title>{{title}}</title>
 </head>
-<body>
+<body data-logged="{{#if userLogged}}true{{else}}false{{/if}}">
 
 
 	<div class="show-error">
@@ -99,16 +99,14 @@
 				</li>
 				{{#if userLogged}}
 
+				<!-- ACCOUNT (logged in) -->
 				<li class="account">
 					<button type="button" class="bx" id="account" onclick="user()">
-						<img id="user-photo" src="data:image/jpg,/" alt="Your Profile Photo">
+						<i id="user-icon" class='bx bxs-user-check'></i>
 					</button>
 
 					<div class="users">
-						<button type="button" class="bx" id="login" onclick="login()"><h6>Login</h6></button>
-						<button type="button" class="bx" id="sign-up" onclick="signUp()"><h6>Cadastrar</h6></button>
-						<button type="button" class="bx" id="profile" onclick="profile()"><h6>Perfil</h6></button>
-						<button type="button" class="bx" id="log-out" onclick="logOut()"><h6>Sair</h6></button>
+						<button type="button" class="bx" id="log-out"><h6>Sair</h6></button>
 						<i class='bx bx-x' id="bag-close-user" onclick="userClose()"></i>
 					</div>
 				</li>
@@ -123,7 +121,6 @@
 					<div class="users">
 						<button type="button" class="bx" id="login" onclick="login()"><h6>Login</h6></button>
 						<button type="button" class="bx" id="sign-up" onclick="signUp()"><h6>Cadastrar</h6></button>
-						<button type="button" class="bx" id="log-out"><h6>Sair</h6></button>
 						<i class='bx bx-x' id="bag-close-user" onclick="userClose()"></i>
 					</div>
 				</li>

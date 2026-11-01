@@ -1,11 +1,11 @@
 import express from 'express';
 import multer from 'multer';
-import jwt from 'jsonwebtoken';
 import {
   multerConfig,
   uploadAvatar
 } from '../config/multer.js';
 import pool from '../config/db.js';
+import { getUserFromToken, requireLogin } from '../config/auth.js';
 // Models
 import {
   User
@@ -15,26 +15,6 @@ import paypal from 'paypal-rest-sdk';
 
 
 const router = express.Router();
-
-// Read the user id from the token sent in the Authorization header ("token=...")
-// or in the cookie. Returns null when there is no valid token.
-function getUserFromToken(req) {
-  let token = req.cookies && req.cookies.token;
-
-  const authHeader = req.headers.authorization;
-  if (!token && authHeader) {
-    const match = authHeader.match(/(?:^|;\s*)token=([^;]+)/);
-    token = match ? match[1] : null;
-  }
-
-  if (!token) return null;
-
-  try {
-    return jwt.verify(token, process.env.SECRET);
-  } catch (error) {
-    return null;
-  }
-}
 
 // routing
 router.get('/', (req, res) => {
@@ -270,7 +250,7 @@ router.get('/adoption', async (req, res) => {
 });
 
 
-router.post('/submit-pet-form', multer(multerConfig).single('input-pet-img'), async (req, res) => {
+router.post('/submit-pet-form', requireLogin, multer(multerConfig).single('input-pet-img'), async (req, res) => {
   if (!req.file) {
     return res.status(422).send('A imagem do pet é obrigatória.');
   }
